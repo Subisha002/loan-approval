@@ -36,7 +36,7 @@ def test_pipeline():
     print(f"\nSample Input Prediction:")
     print(f"Approved: {'Yes' if pred == 1 else 'No'}")
     print(f"Approval Probability: {prob * 100:.2f}%")
-    print("✅ Model prediction pipeline test passed successfully!")
+    print("[SUCCESS] Model prediction pipeline test passed successfully!")
 
 if __name__ == '__main__':
     test_pipeline()

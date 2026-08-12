@@ -83,6 +83,19 @@ st.markdown("""
 # Load Model & Pipeline Artifacts with caching
 @st.cache_resource
 def load_artifacts():
+    import os
+    artifact_files = ['loan_model.pkl', 'scaler.pkl', 'features.pkl', 'metrics.pkl', 'results_df.pkl']
+    missing_files = [f for f in artifact_files if not os.path.exists(f)]
+    
+    if missing_files:
+        try:
+            from huggingface_hub import hf_hub_download
+            hf_repo = os.environ.get("HF_MODEL_REPO", "Subisha002/loan-approval")
+            for f in missing_files:
+                hf_hub_download(repo_id=hf_repo, filename=f, local_dir=".")
+        except Exception:
+            pass
+
     try:
         model = joblib.load('loan_model.pkl')
         scaler = joblib.load('scaler.pkl')

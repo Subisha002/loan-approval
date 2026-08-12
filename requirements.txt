@@ -5,3 +5,4 @@ scikit-learn>=1.0.0
 xgboost>=1.6.0
 plotly>=5.0.0
 joblib>=1.2.0
+huggingface-hub>=0.16.0
